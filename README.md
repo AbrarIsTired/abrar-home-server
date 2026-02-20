@@ -1,64 +1,89 @@
 # Home Server Infrastructure
 
-A personal homelab built on refurbished hardware running Ubuntu Server and CasaOS. Server features services such as centralized file storage, media hosting, game servers, and automated backups.
+Personal homelab environment built on refurbished hardware running Ubuntu Server 24.04 LTS.
+
+Designed to provide secure remote access, centralized storage, media hosting, and multiplayer game infrastructure while maintaining strict network isolation and zero public port exposure.
 
 ---
 
-## Primary Server - Media & File Infrastructure
+## Infrastructure Overview
 
-**Hardware:**
-- Dell Optiplex 3050 (07A3)
+The environment is divided across two physical servers:
+
+- Primary Server – Media & File Infrastructure
+- Secondary Server – Game Infrastructure
+
+Workloads are separated to prevent CPU-intensive game services from impacting storage and media performance.
+
+All remote access is handled through Tailscale VPN. No services are exposed directly to the public internet.
+
+---
+
+# Primary Server – Media & File Infrastructure
+
+**Hardware**
+- Dell Optiplex 3050
 - Intel Core i5-6500T
-- 8GB DDR4 SODIMM 2667MHz
+- 8GB DDR4
 - 256GB NVMe
 
 **OS:** Ubuntu Server 24.04 LTS  
-**Dashboard:** CasaOS
+**Management/Dashboard:** CasaOS
 
-### Services
+## Services
 
-**Samba (NAS/File Sharing)**
-Network-attached storage for centralized file management and backup across devices on the LAN. Provides secure, accessible storage for documents, media, and project files.
+### Samba (Network File Storage)
+Provides centralized file storage across LAN devices. Used for document management, media storage, and local backups. Accessible internally only.
 
-**Jellyfin (Media Hosting)**
-Self-hosted media server for remote access to personal digital media library and film collection on the local network without relying on third-party streaming services.
+### Jellyfin (Media Hosting)
+Self-hosted media server used to stream personal digital media across the LAN or via secure VPN connection. Eliminates reliance on third-party streaming services.
 
-**Syncthing (Automated Backups)**
-Continuous file synchronization tool that automatically backs up the music library, obsidian markdown notes and Python Discord bot project across devices, ensuring data redundancy.
+### Syncthing (Automated Synchronization)
+Continuous file synchronization tool used to replicate important directories (music library, notes, project files) across devices for redundancy.
 
-**Discord Bot (Python)**
-Custom Python-based Discord bot running persistently in a virtual environment, providing utility functions and server status checks for personal use.
-
-**Tailscale VPN**
-Secure remote access layer enabling WAN connectivity to home server resources from outside the local network with ACL-based access control.
+### Discord Bot (Python Utility)
+Custom Python-based bot running persistently in a virtual environment.  
+Includes server monitoring command (`v!status`) which checks game server ports (25565 and 7777) and returns an embedded status response (online/offline).
 
 ---
 
-## Secondary Server - Game Infrastructure
+# Secondary Server – Game Infrastructure
 
-**Hardware:**
-- Dell Precision 5530 (087D)
+**Hardware**
+- Dell Precision 5530
 - Intel Core i7-8850H
-- 32GB DDR4 SODIMM 2400MHz
+- 32GB DDR4
 - 512GB NVMe
 
 **OS:** Ubuntu Server 24.04 LTS
+**Management/Dashboard:** CasaOS
 
-### Services
+## Services
 
-**CraftyController (Game Server Management)**
-Self-hosted web dashboard for centralized management of Minecraft server, including player management, plugin/mod configuration, and server monitoring from a single interface.
+### CraftyController (Game Management Dashboard)
+Web-based management interface for Minecraft server administration. Provides centralized player management, configuration control, and server monitoring.
 
-**Minecraft Server (Fabric + Performance Mods)**
-Dedicated game server running the Fabric mod loader with performance optimization mods (Sodium and others), hosting 10+ players with centralized management via CraftyController dashboard.
+### Minecraft Server (Fabric + Performance Mods)
+Dedicated Minecraft server running Fabric mod loader with performance-focused mods. Hosts 8+ concurrent players with stable resource allocation.
 
-**Terraria Server**
-Persistent Terraria game server instance running in a screen session, providing continuous uptime for invited players without resource conflicts with other services.
-
-**Tailscale VPN**
-Secure remote access with ACL-based restrictions limiting friend access to game server ports (25565 for Minecraft, 7777 for Terraria) while isolating internal infrastructure services.
+### Terraria Server
+Persistent Terraria server running in a managed screen session. Designed for continuous uptime without interfering with other workloads.
 
 ---
-## Why This Setup
 
-Built to learn infrastructure management hands-on while creating a reliable, secure system for personal use. The separation of services across two servers allows for optimized resource allocation. Media and file services on the lower-spec machine, resource-intensive game servers on the higher-spec hardware.
+# Network & Access Model
+
+- No router port forwarding configured.
+- All remote access handled via Tailscale VPN.
+- UFW enabled with deny-by-default firewall policy.
+- Friends restricted to game server ports only (25565, 7777).
+- Infrastructure services are not accessible to non-admin users.
+
+---
+
+# Project Goals
+
+- Gain hands-on infrastructure management experience.
+- Implement layered security controls.
+- Separate workloads based on hardware capability.
+- Maintain a reproducible and documented deployment model.
