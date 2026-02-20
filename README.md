@@ -41,7 +41,7 @@ Self-hosted media server used to stream personal digital media across the LAN or
 ### Syncthing (Automated Synchronization)
 Continuous file synchronization tool used to replicate important directories (music library, notes, project files) across devices for redundancy.
 
-### Discord Bot (Python Utility)
+### [Discord Bot](https://github.com/AbrarIsTired/vector-discord-bot) (Python Utility)
 Custom Python-based bot running persistently in a virtual environment.  
 Includes server monitoring command (`v!status`) which checks game server ports (25565 and 7777) and returns an embedded status response (online/offline).
 
