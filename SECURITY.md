@@ -1,21 +1,21 @@
-
 # Security Model
 
-This homelab is designed with layered security principles, focusing on minimizing exposure and controlling access.
+This homelab focuses on minimizing exposure and controlling access to onboarded users, while maintaining full access to personal services for my own devices (e.g., Samba and Jellyfin).
 
 ---
 
 ## Network Isolation
 
 - No services are exposed to the public internet.  
-- All remote access is handled through Tailscale VPN.  
+- All remote access is handled exclusively through Tailscale VPN.  
 - LAN devices access services directly on the internal network.  
+- Port forwarding is intentionally avoided due to router instability and mesh network constraints.
 
 ---
 
 ## Firewall Configuration (UFW)
 
-- Host-based firewall enabled with deny-by-default policy.  
+- Host-based firewall enabled with a deny-by-default policy.  
 - Allowed ports:  
   - 22 (SSH, admin only)  
   - 25565 (Minecraft)  
@@ -43,6 +43,6 @@ This homelab is designed with layered security principles, focusing on minimizin
 
 ## Security Philosophy
 
-- Keep infrastructure separate from personal accounts  
+- Keeping infrastructure separate from personal accounts  
 - Centralized, revocable access for remote users  
-- Simplicity for maintainability
+- Simplicity and maintainability as guiding principles
