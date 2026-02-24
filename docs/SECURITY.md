@@ -33,14 +33,6 @@ This homelab focuses on minimizing exposure and controlling access to onboarded 
 
 ---
 
-## SSH Policy
-
-- SSH uses key-based authentication only.  
-- Password authentication is disabled.  
-- SSH access is restricted to VPN-connected devices and admins only.
-
----
-
 ## Security Philosophy
 
 - Keeping infrastructure separate from personal accounts  
