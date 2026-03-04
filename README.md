@@ -33,10 +33,10 @@ All remote access is handled through Tailscale VPN. No services are exposed dire
 ## Services
 
 ### Samba (Network File Storage)
-Provides centralized file storage across LAN devices. Used for document management, media storage, and local backups. Accessible internally only.
+Provides centralized file storage across LAN devices. Used for document management, media storage, and local backups. Accessible via Network Share/Drive using LAN and/or VPN
 
 ### Jellyfin (Media Hosting)
-Self-hosted media server used to stream personal digital media across the LAN or via secure VPN connection. Eliminates reliance on third-party streaming services.
+Self-hosted media server used to stream personal digital media across the LAN or VPN connection. Eliminates reliance on third-party streaming services.
 
 ### Syncthing (Automated Synchronization)
 Continuous file synchronization tool used to replicate important directories (music library, notes, project files) across devices for redundancy.
