@@ -37,6 +37,3 @@ This ensures redundancy while keeping storage usage under control.
 
 ---
 
-## Future Improvements
-
-- Move backup storage to dedicated storage drives instead of the OS drive for improved capacity and separation.  
