@@ -23,10 +23,12 @@ backup(){
     echo "Backup Start: $TARGET_DIR at $TIMESTAMP"
     zip -r "/tmp/$BACKUP_FILE" "$TARGET_DIR"
     mv "/tmp/$BACKUP_FILE" "$BACKUP_DIR"
-    ls -1t "$BACKUP_DIR" | tail -n +$((KEEP+1)) | xargs -r rm --
+    ls -1t "$BACKUP_DIR" | tail -n +$((KEEP+1)) | xargs -r -I {} rm "$BACKUP_DIR/{}"
     echo "Backup Completed: $TARGET_DIR at $TIMESTAMP"
 }
 
+# Note: Cron is set to run this script everyday at 3AM
+
 # Call function for Obsidian
-backup "/DATA/Syncthing/Obsidian" "/DATA/Backups/Notes Backups" "obsidian_backup_$TIMESTAMP.zip"
-backup "/DATA/Media/Music" "/DATA/Backups/Music Backups" "music_backup_$TIMESTAMP.zip"
+backup "/DATA/Syncthing/Obsidian" "/DATA/Backups/Media/Notes Backups" "obsidian_backup_$TIMESTAMP.zip"
+backup "/DATA/Media/Music" "/DATA/Backups/Media/Music Backups" "music_backup_$TIMESTAMP.zip"
