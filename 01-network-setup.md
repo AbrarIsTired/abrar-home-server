@@ -4,7 +4,7 @@
 
 Original setup: Server A and Server B connected via a network switch, which was also connected to a Powerline Adapter. The Powerline Adapter ran through the house wiring to a second Powerline Adapter plugged into a Netgear Nighthawk Mesh Node.
 
-Actual throughput over the powerline link was poor — about 6 Mbps for transfers to a Samba share, and 8–16 Mbps even for Steam downloads on the gateway machine, despite the WiFi connection itself supporting 180–250 Mbps. Decided to skip the powerline link entirely: since Server B is a laptop with a WiFi card, it could connect to WiFi directly and share that connection with the rest of the devices on the switch over Ethernet.
+Actual throughput over the powerline link was poor — about 6 Mbps for transfers to a Samba share, and 8–16 Mbps even for Steam downloads on the client/workstation machine, despite the WiFi connection itself supporting 180–250 Mbps (From Motherboard Wi-Fi, MSI B450i. Decided to skip the powerline link entirely: since Server B is a laptop with a WiFi card, it could connect to WiFi directly and share that connection with the rest of the devices on the switch over Ethernet.
 
 ## Part 1: Ubuntu Server Install — Server B (Laptop)
 
