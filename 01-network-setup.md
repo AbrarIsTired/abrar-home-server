@@ -15,7 +15,7 @@ Installed Ubuntu Server Minimized. No GUI, so network config is handled through 
 - `wlp59s0` — built-in WiFi card, assigned `10.0.0.36` by the router via DHCP
 - `enx5c628b74a9c1` — USB-to-Ethernet adapter, manually assigned `192.168.50.1`
 
-Goal: share the laptop's WiFi connection with all devices on the switch (none of which have WiFi cards). The USB Ethernet adapter is the bridge between the laptop and the switch.
+Goal: share the laptop's WiFi connection with all devices on the switch. The USB Ethernet adapter is the bridge between the laptop and the switch.
 
 Ubuntu Minimized ships with no text editor and no internet yet. Before getting online, the only way to write files is `tee` — it reads from stdin and writes to a file, so content gets piped into it instead of using an interactive editor.
 
