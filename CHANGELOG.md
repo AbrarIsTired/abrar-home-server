@@ -28,3 +28,9 @@ cp -rp "Directory" "/DATA/SSD/"
 ---
 
 This marks the end of initial setup/guide-style entries. The original project goal — SSH access from LAN and WAN, a working dashboard, Samba share, and core containers — is met as of this point. Future entries below (and going forward) are logs of new services, troubleshooting, and changes.
+
+## 6/24/2026 — Backup + Cron Setup
+
+- Updated and trasnferred old backup script from previous server to Server A
+- Set cron back to 3AM to run backup.sh
+---
