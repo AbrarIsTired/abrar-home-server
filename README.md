@@ -30,6 +30,7 @@ A laptop and a mini-PC, networked together, running as Linux servers for self-ho
 - [02 — Server Provisioning](02-server-provisioning.md): OS install, Samba, disk mounting, Docker install
 - [03 — Services](03-services/): one file per self-hosted service
 - [04 — Tailscale ACL](04-tailscale-acl.md): access control policy for friend/admin access over Tailscale
+- [05 — Backups](05-backups.md): automated backup script, schedule, and debugging notes
 - [CHANGELOG](CHANGELOG.md): dated log of work done
 
 ## Quick links (LAN only)
