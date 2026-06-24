@@ -29,8 +29,10 @@ cp -rp "Directory" "/DATA/SSD/"
 
 This marks the end of initial setup/guide-style entries. The original project goal — SSH access from LAN and WAN, a working dashboard, Samba share, and core containers — is met as of this point. Future entries below (and going forward) are logs of new services, troubleshooting, and changes.
 
-## 6/24/2026 — Backup + Cron Setup
+## 6/24/2026 — Backup Script + Cron Setup
 
-- Updated and trasnferred old backup script from previous server to Server A
-- Set cron back to 3AM to run backup.sh
----
+- Transferred backup script from previous server to Server A, updating hardcoded paths to match the new `/Abrar_SMB` layout
+- Fixed script failing to run due to Windows line endings (CRLF) from prior editing
+- Installed missing `zip` dependency
+- Debugged a misleading `zip I/O error: Disk quota exceeded` — root cause was the script staging zips in `/tmp` (RAM-backed `tmpfs`), not an actual disk quota; fixed by writing zips directly to the backup destination — see [05-backups.md](05-backups.md)
+- Set cron to run `backup.sh` daily at 3 AM
